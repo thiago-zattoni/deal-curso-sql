@@ -29,7 +29,7 @@ image:https://i.paste.pics/036bc93428fe5dec59cb74d0758f8536.png["", link="https:
 Execute o comando a seguir no CMD ou Git Bash, no diretório "...\deal-curso-sql\sql\"
 [source,java,indent=0]
 ----
-docker-compose up
+docker-compose up -d
 ----
 
 == Configurar conexão
