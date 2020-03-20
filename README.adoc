@@ -2,7 +2,7 @@
 
 Executar os passos a seguir para iniciarmos o curso de sql.
 
-== Baixar imagem Sql Server
+== Baixar imagem do Sql Server
 [source,java,indent=0]
 ----
 docker pull mcr.microsoft.com/mssql/server:2017-latest
@@ -53,3 +53,25 @@ GO
 RESTORE DATABASE AdventureWorks2017 FROM DISK = N'/deal-curso-sql/AdventureWorks2017.bak' WITH FILE = 1, MOVE N'AdventureWorks2017' TO N'/var/opt/mssql/data/AdventureWorks2017.mdf', MOVE N'AdventureWorks2017_log' TO N'/var/opt/mssql/data/AdventureWorks2017_log.ldf', NOUNLOAD, STATS = 5;
 GO
 ----
+
+= NoSql
+
+Utilizaremos o MongoDB.
+
+== Baixar imagem do MongoDB e Mongo-Express
+[source,java,indent=0]
+----
+docker pull mongo
+docker pull mongo-express
+----
+
+== Iniciar MongoDB
+Execute o comando a seguir no CMD ou Git Bash, no diretório "...\deal-curso-sql\nosql\"
+[source,java,indent=0]
+----
+docker-compose up -d
+----
+
+== Client
+Para acessar o MongoDB, acesse:
+http://localhost:8081/
