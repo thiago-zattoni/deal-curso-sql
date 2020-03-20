@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  sqlserver2017:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    volumes:
+       - ./backup:/deal-curso-sql
+    ports:
+      - "1555:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=DeaL%CuRsO#sQL
+      - MSSQL_PID=Express
+
+# Baixar client padrao SQL Server Management Studio (SSMS)
+# https://aka.ms/ssmsfullsetup (555Mb)
+
+# Baixar client DBeaver
+# https://dbeaver.io/files/dbeaver-ce-latest-x86_64-setup.exe (49.7Mb)
+# https://dbeaver.io/download/
+
+# Criar database a partir do backup
+# USE master;
+# GO
+# RESTORE DATABASE AdventureWorks2017 FROM DISK = N'/deal-curso-sql/AdventureWorks2017.bak' WITH FILE = 1, MOVE N'AdventureWorks2017' TO N'/var/opt/mssql/data/AdventureWorks2017.mdf', MOVE N'AdventureWorks2017_log' TO N'/var/opt/mssql/data/AdventureWorks2017_log.ldf', NOUNLOAD, STATS = 5;
+# GO
+
+# Apagar database
+# USE master;
+# GO
+# ALTER DATABASE AdventureWorks2017 SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+# GO
+# DROP DATABASE AdventureWorks2017;
+# GO
