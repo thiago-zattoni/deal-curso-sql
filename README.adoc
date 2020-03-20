@@ -73,5 +73,5 @@ docker-compose up -d
 ----
 
 == Client
-Para acessar o MongoDB, acesse:
+Para acessar o MongoDB:
 http://localhost:8081/
