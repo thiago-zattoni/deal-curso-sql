@@ -1,0 +1,55 @@
+= deal-curso-sql
+
+Executar os passos a seguir para iniciarmos o curso de sql.
+
+== Baixar imagem Sql Server
+[source,java,indent=0]
+----
+docker pull mcr.microsoft.com/mssql/server:2017-latest
+----
+
+== Instalar client padrão SQL Server Management Studio (SSMS)
+https://aka.ms/ssmsfullsetup (555Mb)
+
+== Ou Instalar client alternativo DBeaver
+https://dbeaver.io/files/dbeaver-ce-latest-x86_64-setup.exe (49.7Mb)
+
+https://dbeaver.io/download/
+
+== Clonar projeto
+[source,java,indent=0]
+----
+git clone https://github.com/thiago-zattoni/deal-curso-sql.git
+----
+
+== Habilite o File Sharing no docker
+image:https://i.paste.pics/036bc93428fe5dec59cb74d0758f8536.png["", link="https://i.paste.pics/036bc93428fe5dec59cb74d0758f8536.png"]
+
+== Iniciar Sql Server
+Execute o comando a seguir no CMD ou Git Bash, no diretório "...\deal-curso-sql\sql\"
+[source,java,indent=0]
+----
+docker-compose up
+----
+
+== Configurar conexão
+[source,java,indent=0]
+----
+usuario: sa
+senha: DeaL@CuRsO#sQL
+----
+image:https://i.paste.pics/395692542f98a22675da527d02a106b0.png["", link="https://i.paste.pics/395692542f98a22675da527d02a106b0.png"]
+
+ou
+
+image:https://i.paste.pics/0484be9d6e187df8d4f4296413ddc924.png["", link="https://i.paste.pics/0484be9d6e187df8d4f4296413ddc924.png"]
+
+== Restaurar backup
+Com o servidor rodando, e o client instalado, execute o trecho sql a seguir para restaurar o backup da base de dados a ser utilizada no curso:
+[source,java,indent=0]
+----
+USE master;
+GO
+RESTORE DATABASE AdventureWorks2017 FROM DISK = N'/deal-curso-sql/AdventureWorks2017.bak' WITH FILE = 1, MOVE N'AdventureWorks2017' TO N'/var/opt/mssql/data/AdventureWorks2017.mdf', MOVE N'AdventureWorks2017_log' TO N'/var/opt/mssql/data/AdventureWorks2017_log.ldf', NOUNLOAD, STATS = 5;
+GO
+----
