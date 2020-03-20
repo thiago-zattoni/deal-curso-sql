@@ -33,7 +33,7 @@ docker-compose up -d
 ----
 
 == Configurar conexão
-[source,java,indent=0]
+[source,indent=0]
 ----
 usuario: sa
 senha: DeaL@CuRsO#sQL
@@ -73,5 +73,7 @@ docker-compose up -d
 ----
 
 == Client
+
 Para acessar o MongoDB:
+
 http://localhost:8081/
